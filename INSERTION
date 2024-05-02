@@ -1,0 +1,48 @@
+INSERT INTO EXHIBITION (exID, EXNAME, START_DATE, ENDDATE)
+VALUES
+    (1, 'Canvas Chronicles', '2024-05-01', '2024-06-30'),
+    (2, 'Aesthetic Reverie', '2024-07-15', '2024-08-15'),
+    (3, 'Ink & Imagination', '2024-09-10', '2024-10-10'),
+    (4, 'Brush and Beyond', '2024-11-01', '2024-11-30');
+
+
+INSERT INTO EXHIBITION_TYPE (EXNAME, LOCATION)
+VALUES
+    ('Canvas Chronicles', 'Central museum'),
+    ('Aesthetic Reverie', 'Art museum'),
+    ('Ink & Imagination', 'Art center'),
+    ('Brush and Beyond', 'Art gallery');
+
+
+INSERT INTO ARTWORK (ARTID, TITLE, YEAR, ART_TYPE, PRICE, ARTIST_ID, EXID)
+VALUES
+    (101, 'The Starry Night', 1890, 'painting', '100M', 1, 1),
+    (102, 'Mona Lisa', 1519, 'painting', '75M', 2, 2),
+    (103, 'Night Watch', 1669, 'painting', '200M', 3, 3),
+    (104, 'The Creation of Adam', 1564, 'painting', '150M', 4, 4),
+    (105, 'The Kiss', 1918, 'painting', '175M', 5, 3);
+
+
+INSERT INTO ARTIST (ARTIST_ID, ARTISTNAME, ART_STYLE)
+VALUES
+    (1, 'Vincent van Gogh', 'Post-Impressionism'),
+    (2, 'Leonardo da Vinci', 'Renaissance'),
+    (3, 'Rembrandt', 'Baroque'),
+    (4, 'Michelangelo', 'Renaissance'),
+    (5, 'Gustav Klimt', 'Art Nouveau');
+
+
+INSERT INTO GALLERY (GID, LOCATION, GNAME)
+VALUES
+    (1, 'New York, USA', 'Central museum'),
+    (2, 'Paris, France', 'Art museum'),
+    (3, 'London, UK', 'Art center'),
+    (4, 'Tokyo, Japan', 'Art gallery');
+
+
+INSERT INTO CUSTOMER (CUSTID, NAME, PHONENUMBER, ADDRESS)
+VALUES
+    (401, 'Steve Smith', '123-456-7890', '123 Main St, New York'),
+    (402, 'John Snow', '987-654-3210', '456 Elm St, Paris'),
+    (403, 'Walter White', '555-555-5555', '789 Oak St, London'),
+    (404, 'Beetlejuice', '111-222-3333', '987 Maple St, Tokyo');
