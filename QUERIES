@@ -1,0 +1,33 @@
+--Retrieve all artworks along with their artists and exhibition names:
+SELECT A.TITLE AS Artwork_Title, AR.ARTISTNAME AS Artist_Name, E.EXNAME AS Exhibition_Name
+FROM ARTWORK A
+INNER JOIN ARTIST AR ON A.ARTIST_ID = AR.ARTIST_ID
+INNER JOIN EXHIBITION E ON A.EXID = E.exID;
+
+
+--Find the total price of all artworks in each exhibition:
+SELECT E.EXNAME AS Exhibition_Name, SUM(CAST(REPLACE(A.PRICE, 'M', '') AS DECIMAL)) AS Total_Price
+FROM ARTWORK A
+INNER JOIN EXHIBITION E ON A.EXID = E.exID
+GROUP BY E.EXNAME;
+
+
+--List all customers who attended the exhibition at the 'Central museum' in New York:
+SELECT C.NAME AS Customer_Name, C.ADDRESS AS Customer_Address
+FROM CUSTOMER C
+INNER JOIN EXHIBITION_TYPE ET ON C.CUSTID = ET.CUSTID
+WHERE ET.LOCATION = 'Central museum' AND ET.EXNAME = 'Canvas Chronicles';
+
+
+--Find the average price of artworks in each art style:
+SELECT AR.ART_STYLE AS Art_Style, AVG(CAST(REPLACE(A.PRICE, 'M', '') AS DECIMAL)) AS Average_Price
+FROM ARTWORK A
+INNER JOIN ARTIST AR ON A.ARTIST_ID = AR.ARTIST_ID
+GROUP BY AR.ART_STYLE;
+
+
+--Retrieve the location and gallery name of all exhibitions
+SELECT G.LOCATION, G.GNAME, E.EXNAME AS Exhibition_Name
+FROM EXHIBITION_TYPE ET
+INNER JOIN GALLERY G ON ET.LOCATION = G.LOCATION
+INNER JOIN EXHIBITION E ON ET.EXNAME = E.EXNAME;
